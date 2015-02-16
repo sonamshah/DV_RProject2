@@ -11,5 +11,5 @@ output: html_document
 3. Process with ggplot and order based on the desired category with facet wrap
 
 ```{r fig.width=10, fig.height=10}
-source("../01 Data/df_selectorders.R", echo= TRUE)
+source("../01 Data/df_sales.R", echo= TRUE)
 ```
