@@ -9,10 +9,8 @@ df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(PAYMENT_TYPE) %>%
 
 # mean price by country
 df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(COUNTRY) %>% summarise(mean_price = mean(PRICE)) %>% ggplot(aes(x=COUNTRY, y=mean_price)) + geom_point()
-# df_sales <- df_sales + theme(axis.text.x=element_text(angle=90, size=8, vjust=0.5)
+df_sales <- df_sales + theme(axis.text.x=element_text(angle=90, size=8, vjust=0.5)
                              
-# df_sales %>% select(PAYMENT_TYPE) %>% group_by(PAYMENT_TYPE) %>% summarise(count_pmt = count(PAYMENT_TYPE)) %>% ggplot(aes(x=PAYMENT_TYPE,y=count_pmt/999*100,color=color)) +geom_point()
-
 # pie chart of payment type
 a <- nrow(subset(df_sales, PAYMENT_TYPE == 'Mastercard'))
 b <- nrow(subset(df_sales, PAYMENT_TYPE == 'Visa'))
