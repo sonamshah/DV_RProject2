@@ -4,9 +4,8 @@ df_sales <- data.frame(eval(parse(text=substring(getURL(URLencode('http://129.15
 library(tidyr)
 library(dplyr)
 
-df_sales %>% select(PAYMENT_TYPE, COUNTRY) %>% group_by(PAYMENT_TYPE) 
-# ggplot(aes(x=PAYMENT_TYPE, y=COUNTRY)) + geom_point()
-df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% filter(COUNTRY=="United States") %>% group_by(PAYMENT_TYPE) %>% summarise(mean_price = mean(PRICE)) %>% tbl_df
-df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% filter(COUNTRY=="Canada") %>% group_by(PAYMENT_TYPE) %>% summarise(mean_price = mean(PRICE)) %>% tbl_df
-df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% filter(COUNTRY=="United Kingdom") %>% group_by(PAYMENT_TYPE) %>% summarise(mean_price = mean(PRICE)) %>% tbl_df
-df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% filter(COUNTRY=="Australia") %>% group_by(PAYMENT_TYPE) %>% summarise(mean_price = mean(PRICE)) %>% tbl_df
+#mean price by payment type
+df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(PAYMENT_TYPE) %>% summarise(mean_price = mean(PRICE)) %>% tbl_df
+
+#mean price by country
+df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(COUNTRY) %>% summarise(mean_price = mean(PRICE)) %>% tbl_df
