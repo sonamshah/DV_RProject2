@@ -21,8 +21,11 @@ g + geom_bar(width=.7) + theme(legend.position="none") + labs(x="Payment Type", 
 #payment type by country
 qplot(factor(PAYMENT_TYPE), data=df_sales, geom="bar") + coord_flip() + facet_wrap(~COUNTRY) + labs(x="Count", y="Payment Type", title="Frequency of Payment Type By Country") + theme(axis.text.x=element_text(angle=90, size=8, vjust=0.5))
 
-# count of payment type
+# frequency of payment type
 df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(PAYMENT_TYPE) %>% count(PAYMENT_TYPE)
+
+# mean price of payement type
+df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(PAYMENT_TYPE) %>% count(PRICE)
 
 # mean price by country
 df_sales <- df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(COUNTRY) %>% summarise(mean_price = mean(PRICE))
