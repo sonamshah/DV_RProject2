@@ -1,4 +1,15 @@
 ---
-title: "Gene"
+title: "DV_RProject 1"
 output: html_document
 ---
+
+**members:** Andrea Curo, Dora Cheng, Sonam Shah
+
+###Creating Multiple Graph Plots in R
+1. Create an RStudio project
+2. Pull data from oracle database cloud
+3. Process with ggplot and order based on the desired category with facet wrap
+
+```{r fig.width=10, fig.height=10}
+source("../01 Data/df_selectorders.R", echo= TRUE)
+```
