@@ -17,6 +17,11 @@ b <- nrow(subset(df_sales, PAYMENT_TYPE == 'Visa'))
 c <- nrow(subset(df_sales, PAYMENT_TYPE == 'Amex'))
 d <- nrow(subset(df_sales, PAYMENT_TYPE == 'Diners'))
 
+library(plotrix)
 slices <- c(a, b, c, d)
 lbls <- c('Mastercard', 'Visa', 'Amex', 'Diners')
-pie(slices, labels = lbls, main = 'International Market Share of Payment Types')
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie3D(slices,labels = lbls, explode = 0.1,
+    main='International Market Share of Payment Types')
