@@ -1,23 +1,29 @@
 ---
-title: "DV_RProject 1"
+title: "DV_RProject 2"
 output: html_document
 ---
 
+Our data set is based off of a dataset mapping different payment types across different countries and how much is spent per payment type account.
+
 **members:** Andrea Curo, Dora Cheng, Sonam Shah
 
-###Creating Multiple Graph Plots in R
-1. Create an RStudio project
-2. Pull data from oracle database cloud
-3. Process with ggplot and order based on the desired category with facet wrap
-
+#Head subset of data
 ```{r fig.width=10, fig.height=10}
-source("../01 Data/df_price_by_pmttype.R", echo= TRUE)
+source("../01 Data/df_sales.R", echo= TRUE)
 ```
 
+#Data wrangling sets and Coordinating Visualizations
+###Frequency of Payment Type by Country
 ```{r fig.width=10, fig.height=10}
-source("../01 Data/df_price_by_country.R", echo= TRUE)
+source("../02 Data Wrangling/df_freq_by_pmttype.R", echo= TRUE)
 ```
 
+###Mean Price by Country
 ```{r fig.width=10, fig.height=10}
-source("../01 Data/df_pmttype_mktshare.R", echo= TRUE)
+source("../02 Data Wrangling/df_price_by_country.R", echo= TRUE)
+```
+
+###The International Market Share of Each Payment Type
+```{r fig.width=10, fig.height=10}
+source("../02 Data Wrangling/df_pmttype_mktshare.R", echo= TRUE)
 ```
