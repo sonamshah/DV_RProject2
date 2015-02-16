@@ -15,4 +15,8 @@ d <- nrow(subset(df_sales, PAYMENT_TYPE == 'Diners'))
 
 slices <- c(a, b, c, d)
 lbls <- c('Mastercard', 'Visa', 'Amex', 'Diners')
-pie(slices, labels = lbls, main = 'International Market Share of Payment Types')
+pct <- round(slices/sum(slices)*100)
+lbls <- paste(lbls, pct) # add percents to labels 
+lbls <- paste(lbls,"%",sep="") # ad % to labels 
+pie(slices,labels = lbls, col=rainbow(length(lbls)),
+    main="International Market Share of Payment Types")
