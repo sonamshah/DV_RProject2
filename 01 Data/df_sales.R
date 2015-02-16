@@ -13,18 +13,12 @@ df_sales %>% select(PAYMENT_TYPE, COUNTRY, PRICE) %>% group_by(COUNTRY) %>% summ
                              
 # df_sales %>% select(PAYMENT_TYPE) %>% group_by(PAYMENT_TYPE) %>% summarise(count_pmt = count(PAYMENT_TYPE)) %>% ggplot(aes(x=PAYMENT_TYPE,y=count_pmt/999*100,color=color)) +geom_point()
 
-require(tidyr)
-require(dplyr)
-library(ggplot2)
-tbl_df(diamonds)
-View(diamonds)
+# pie chart of payment type
+a <- nrow(subset(df_sales, PAYMENT_TYPE == 'Mastercard'))
+b <- nrow(subset(df_sales, PAYMENT_TYPE == 'Visa'))
+c <- nrow(subset(df_sales, PAYMENT_TYPE == 'Amex'))
+d <- nrow(subset(df_sales, PAYMENT_TYPE == 'Diners'))
 
-diamonds %>% select(cut) %>% group_by(cut) %>% summarise(count_pmt = count(cut)) 
-
-# dim(diamonds)
-# names(diamonds)
-
-# Simple Pie Chart
-slices <- c(10, 12,4, 16, 8)
-lbls <- c("US", "UK", "Australia", "Germany", "France")
-pie(slices, labels = lbls, main="Pie Chart of Countries")
+slices <- c(a, b, c, d)
+lbls <- c('Mastercard', 'Visa', 'Amex', 'Diners')
+pie(slices, labels = lbls, main = 'International Market Share of Payment Types')
